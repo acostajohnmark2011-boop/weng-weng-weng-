@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    Hello, World!
+  </h1>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #16002b, #51005c, #17002c);
+    color: white;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    color: #ff8acb;
+    animation: float 7s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .8; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 88%;
+    max-width: 390px;
+    padding: 30px 23px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 25px;
+    background: rgba(255,255,255,.10);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 35px rgba(255,80,190,.3);
+    z-index: 2;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.top-heart {
+    font-size: 48px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: 27px;
+    color: #ffb5e3;
+    text-shadow: 0 0 15px #ff55bb;
+}
+
+.line {
+    width: 75px;
+    height: 3px;
+    margin: 15px auto;
+    border-radius: 10px;
+    background: #ff9cda;
+}
+
+.message {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #fff0fa;
+    margin: 20px 0;
+}
+
+button {
+    border: none;
+    padding: 13px 27px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff69b4, #a855f7);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,105,180,.5);
+    transition: .3s;
+}
+
+button:active {
+    transform: scale(.92);
+}
+
+#extra {
+    display: none;
+    margin-top: 20px;
+    color: #ffc5e8;
+    font-size: 17px;
+    animation: appear 1s ease;
+}
+
+.footer {
+    margin-top: 22px;
+    font-size: 11px;
+    color: #e9b9df;
+    letter-spacing: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-heart">💗</div>
+
+    <h1>Hii baby!</h1>
+
+    <div class="line"></div>
+
+    <div class="message">
+        Hii baby, God bless and good luck po tomorrow.
+        Doing your best is more than enough na po,
+        kahit hindi man pasok. Proud na proud ako sa'yo
+        kasi kinaya mo ulit kahit pagod na pagod at
+        drain na drain ka na. Wag mo i-down sarili mo ha,
+        baby. Nandito lang ako, mahal na mahal po kita.
+        mwuaamwamwaa
+    </div>
+
+    <button onclick="showLove()">Click here ❤️</button>
+
+    <div id="extra">
+        Always remember that I'm proud of you, baby! 💗
+    </div>
+
+    <div class="footer">ALWAYS BELIEVE IN YOURSELF</div>
+
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("extra").style.display = "block";
+    document.querySelector("button").innerText = "I LOVE YOU ❤️";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["♥", "♡", "💗", "💕"][Math.floor(Math.random()*4)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9000);
+}
+
+setInterval(createHeart, 350);
+</script>
+
+</body>
+</html>
